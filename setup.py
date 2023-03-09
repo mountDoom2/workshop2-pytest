@@ -11,9 +11,9 @@ setup(
     classifiers=[
         "Framework :: Pytest",
     ],
-    # entry_points={
-    #     "pytest11": [
-    #         "triage = pytest_triage.plugin",
-    #     ],
-    # },
+    entry_points={
+        "pytest11": [
+            "triage = pytest_triage.plugin",
+        ],
+    },
 )
