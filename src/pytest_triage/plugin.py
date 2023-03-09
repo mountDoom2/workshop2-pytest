@@ -18,6 +18,7 @@ def pytest_addoption(parser):
 
 
 def pytest_configure(config):
+    ...
     # Step 1
     # Initialize Triager and store it to config object
 
@@ -33,23 +34,6 @@ def pytest_configure(config):
     # Call pytest_register_signatures hook with config object as parameter
     # Register signatures from hooks' results.
     # Store all loaded signatures from hooks to config object, so we add them later as test markers in pytest_collection_modifyitems
-
-    config._triager = triager.Triager()
-    config._most_common = config.getoption("most_common")
-    cmdline_signatures = config.getoption("signature")
-    config._global_sigs = []
-
-    if cmdline_signatures:
-        config._global_sigs = config._triager.parse_signatures(cmdline_signatures)
-        for sig in config._global_sigs:
-            config._triager.register_signature(*sig)
-
-    results = config.hook.pytest_register_signatures(config=config)
-
-    if results:
-        for signatures in results:
-            for sig in signatures:
-                config._triager.register_signature(*sig)
 
 
 def pytest_collection_modifyitems(items):
