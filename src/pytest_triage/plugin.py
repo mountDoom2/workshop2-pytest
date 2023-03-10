@@ -50,7 +50,7 @@ def pytest_collection_modifyitems(items):
 def pytest_runtest_makereport(item, call):
     if call.when != "call":
         return
-    # Step 2
+    # Step 1
     # Triage test result in case of failure using Triager.find_bin
 
 
