@@ -2,18 +2,20 @@
 
 ## Linux
 ```bash
-$ git clone git@github.com:mountDoom2/workshop1-pytest.git
-$ cd workshop1-pytest
+$ git clone git@github.com:mountDoom2/workshop2-pytest.git
+$ cd workshop2-pytest
 $ python -m venv venv
 $ . venv/bin/activate
+$ pip install -e .
 ```
 
 ## Powershell
 ```powershell
-git clone git@github.com:mountDoom2/workshop1-pytest.git
-cd workshop1-pytest
+git clone git@github.com:mountDoom2/workshop2-pytest.git
+cd workshop2-pytest
 python -m venv venv
 .\venv\Scripts\Activate.ps1
+$ pip install -e .
 ```
 
 ## Visual Studio Code extensions
