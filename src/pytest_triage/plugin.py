@@ -36,7 +36,7 @@ def pytest_configure(config):
     config._global_sigs = []
 
     if cmdline_signatures:
-        config._global_sigs = config._triager.parse_signatures(cmdline_signatures)
+        config._global_sigs.extend(config._triager.parse_signatures(cmdline_signatures))
         for sig in config._global_sigs:
             config._triager.register_signature(*sig)
     # Step 4
@@ -47,6 +47,7 @@ def pytest_configure(config):
 
     if results:
         for signatures in results:
+            config._global_sigs.extend(signatures)
             for sig in signatures:
                 config._triager.register_signature(*sig)
 
