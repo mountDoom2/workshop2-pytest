@@ -41,7 +41,7 @@ def pytest_collection_modifyitems(items):
     # Step 2
     # find all "signature" markers using item.iter_markers.
     # Read marker parameters using marker.kwargs.get method.
-    # Register them into Triager using Triager.register_signature (access Triager via config object (item.config))
+    # Register them into Triager using Triager.register_signature (access Triager via config object (item.config)) - verify that marker is not already registered.
 
     # Step 3
     # Add all global signatures (set in pytest_configure) to all items using item.add_marker
