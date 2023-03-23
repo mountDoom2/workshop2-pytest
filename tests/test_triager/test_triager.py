@@ -48,7 +48,6 @@ def test_register_signature_invalid(empty_triager, signature):
         empty_triager.register_signature(*signature)
 
 
-@pytest.mark.triage_register
 @pytest.mark.parametrize(
     "raw_signature,expected",
     [
@@ -65,7 +64,6 @@ def test_register_raw_signature(empty_triager, raw_signature, expected):
     empty_triager.register_raw_signature(raw_signature) == expected
 
 
-@pytest.mark.triage_register
 @pytest.mark.parametrize(
     "raw_signature",
     [
