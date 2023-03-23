@@ -43,8 +43,19 @@ class Triager:
         pattern: optional
 
         Either one of exception/pattern must be entered.
+        Return tuple (name, exception, pattern)
         """
-        raise NotImplementedError()
+        name, *split = raw_signature.split(":", 2)
+        pattern, exception = None, None
+        if len(split) == 2:
+            exception, pattern = split
+        elif len(split) == 1:
+            exception = split[0]
+        # Normalize empty strings to None
+        pattern = pattern or None
+        exception = exception or None
+
+        return name, exception, pattern
 
     def parse_signatures(self, raw_signatures: t.List[str]) -> t.List[Signature]:
         """Parse list of signatures."""
